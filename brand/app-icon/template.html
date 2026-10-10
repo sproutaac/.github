@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Source for the app icons. ?shape=square → full-bleed (iOS/Android; the OS
+     applies its own mask). ?shape=macos → macOS Big Sur-style rounded tile
+     with margin and shadow, on a transparent canvas. Render at 1024x1024. -->
+<style>
+*{margin:0;box-sizing:border-box}
+html,body{width:1024px;height:1024px;background:transparent;overflow:hidden}
+.tile{position:absolute;display:grid;place-items:center;background:#FAF7F2}
+.square{inset:0}
+.macos{left:100px;top:100px;width:824px;height:824px;border-radius:185px;box-shadow:0 10px 20px rgba(0,0,0,.28),inset 0 0 0 1px rgba(0,0,0,.05)}
+.tile img{height:64%}
+.macos img{height:66%}
+</style></head><body>
+<div id="tile" class="tile"><img src="../sprout-mark.svg" alt=""></div>
+<script>document.getElementById('tile').classList.add(new URLSearchParams(location.search).get('shape') || 'square')</script>
+</body></html>
